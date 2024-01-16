@@ -19,8 +19,8 @@ Created a full stack application with React and AWS that generates obituaries fo
 - [Lambda Function URLs](https://masoudkarimif.github.io/posts/aws-lambda-function-url/) to connect your backend to the frontend
 - Lambda functions for this project:
 
-  - `get-obituaries-<your-ucid>`: to retrieve all the obituaries. Function URL only allows `GET` requests
-  - `create-obituary-<your-ucid>`: to create a new obituary. The function reads all the data (including the picture) from the body of the request. Function URL only allows `POST` requests
+  - `get-obituaries-<>`: to retrieve all the obituaries. Function URL only allows `GET` requests
+  - `create-obituary-<>`: to create a new obituary. The function reads all the data (including the picture) from the body of the request. Function URL only allows `POST` requests
   - `generate-obituary` that uses ChatGPT
   - `read-obituary` that uses Amazon Polly
   - `store-files` that uses Cloudinary to store both the picture and speech
