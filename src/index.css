@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&display=swap');
+@import "https://unpkg.com/open-props" layer(design.system);
+@import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
+
+:root{
+  --color-bg: #1f1f38;
+  --color-bg-var: #2c2c6c;
+  --color-primary: #4db5ff;
+  --color-primary-var: rgba(77, 181, 255, 0.4);
+  --color-white: #fff;
+  --color-light: rgba(255,255,255,.6);
+
+
+  --container-width-lg: 75%;
+  --container-width-md: 86%
+  --container-width-sm: 90%
+}
+
+
+body,h1,h2,h3,h4,h5,h6,li,p {
+  margin: 0;
+  padding: 0;
+  
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  
+}
+
+html,body{
+  /* font-family: sans-serif; */
+  height: 100%;
+  font-family: 'Orbitron', sans-serif;
+  background-image: url(../public/bg-texture.png) !important;
+  background: var(--color-bg);
+  color: var(--color-white);
+
+  /* background-color: white; */
+  
+}
+
+#addObit{
+  font-family: 'Orbitron', sans-serif;
+  font-size:large;
+  background-image: url(../public/bg-texture.png) !important;
+  background: var(--color-bg);
+  color: white;
+}
+
+#addObit:hover{
+  color: black;
+  background-color: gray;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  flex-direction: row;
+  font-size: large;
+  /* border-top: solid 5px rgb(66, 0, 121); */
+  border-bottom: solid 2px rgb(96, 103, 231);
+  text-decoration: none;
+  /* background: linear-gradient(to right, rgb(0, 255, 132), rgb(78, 109, 211)); */
+
+}
+nav #title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 40%;
+  width: 40%;
+  height: 100px;
+  color: linear-gradient(to right, rgb(0, 255, 132), rgb(78, 109, 211));
+  /* color: red; */
+}
+#title h2{
+  font-size: 34px;
+}
+#title h6{
+  color: gray;
+}
+nav #invis-left{
+  display: flex;
+  flex: 1 0 30%;
+  width: 30%;
+  justify-content: left;
+  height: 100%;
+}
+nav #invis-right{
+  display: flex;
+  flex: 1 0 30%;
+  width: 30%;
+  justify-content: right;
+  height: 100%;
+}
+nav button{
+  font-size: 20px;
+  border: 0px;
+  height: 100%;
+  width: 175px;
+  background-color: var(--background-colour); 
+  color: var(--text-colour);
+  transition: 0.7s;
+}
+nav button:hover{
+  background-color: rgb(78, 78, 78);
+  color: white;
+}
+
+
+#root{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#content {
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  width: 100%;
+  flex: 1 0 auto;
+  background-image: url(../public/bg-texture.png) !important;
+  background: var(--color-bg);
+  color: white;
+}
+
+
+button.note-button{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: calc(100% - 5px);
+  height: 100px;
+  overflow: hidden;
+  /* word-break:break-all; */
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 2.5px;
+  color: var(--text-colour);
+  background-color: var(--background-colour);
+  border-radius: 7.5px;
+  transition: 0.7s;
+}
+button.note-button:hover{
+  background-color: rgb(78, 78, 78);
+  color: white;
+}
+.note-button h5{
+  color: rgb(161, 161, 161);
+  padding-bottom: 7px;
+}
+.note-button.true{
+  background-color: rgb(66, 0, 121);
+  color: white;
+}
+.note-button #note-preview{
+  /* display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: vertical; */
+  height: 45px;
+  width: 80%;
+  
+  /* text-overflow: ellipsis; */
+}
+
+#note-preview p{
+  height: 15px;
+  width: 100%;
+  /* white-space: nowrap !important;
+  overflow-x: hidden !important;*/
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  
+}
+
+
+
+#note-container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  /* align-items: center; */
+  width: 100%;
+  height: 100%;
+  transition: 1s;
+  /* justify-content:space-evenly; */
+  word-wrap: break-word;
+  background-image: url(../public/bg-texture.png) !important;
+  background: var(--color-bg);
+  padding-left: 5%;
+  padding-right: 5%;
+  /* display:flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; */
+  /* max-width: 1600px; */
+}
+#note-container #none-selected{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: gray;
+  justify-content: center;
+  align-items: center;
+}
+
+/* View CSS */
+#view-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: solid 2px rgb(204, 204, 204);
+  width: calc(100% - 40px);
+  height: 80px;
+  padding-inline: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#view-info{
+  display: flex;
+  flex-direction: column;
+}
+/* #view-info h1{
+
+} */
+#view-info h5{
+  color: gray;
+}
+#view-content{
+  width: calc(100% - 40px);
+  padding-inline: 20px;
+  padding-top: 10px;
+}
+
+
+.date-input{
+  background: inherit;
+  border: none;
+  outline: none;
+  font-size: large;
+  width: 260px;
+}
+.date-input:focus-visible{
+  border: none;
+}
+
+
+/* Colour mode CSS */
+:root {
+  --text-colour: #000000;
+  --background-colour: #ffffff;
+  background-color: white;
+}
+:root .dark{
+  /* Dark mode style */
+  --text-colour: #ffffff;
+  --background-colour: #121213;
+  background-color: var(--background-colour);
+  color: white;
+}
+
+/* Overlay css from w3schools */
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.85); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+#overlay-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+#overlay-title{
+  display: flex;
+  align-self: center;
+}
+#name-input-box{
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.name-input{
+  width: 80%;
+  font-size: large;
+  /* height: ; */
+  font-family: 'Orbitron', sans-serif;
+}
+
+#overlay #date-inputs{
+  display: flex;
+  width: fit-content;
+}
+
+/* Flexbox for cancel button */
+#cancel-button-box{
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  height: 100px;
+  padding-bottom: 50px;
+}
+
+/* Cancel Button styling */
+#cancel-button{
+  width: 100px;
+  height: 100px;
+  font-size: xx-large;
+  border: none;
+  background: none;
+  transition: 0.7s;
+}
+#cancel-button:hover{
+  background-color: rgb(78, 78, 78);
+  color: white;
+}
+
+#divider{
+  width: 80vh;
+}
+
+#underline-hover:hover{
+  text-decoration: underline;
+}
+
+#underline-hover{
+  font-size:18px;
+}
+
+
+#born-display{
+  margin-right: 3%;
+  font-weight: bold;
+}
+
+#died-display{
+  margin-right: 3%;
+  margin-left : 10%;
+  font-weight: bold;
+}
+
+#submit-button{
+    /* box-shadow: 0px 10px 14px -7px #276873; */
+    /* background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%); */
+    border: none;
+    background-color:#f50585;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:20px;
+    font-weight:bold;
+    padding:13px 32px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #3d768a;
+    width: fit-content;
+    margin-top: 10px;
+    font-family: 'Orbitron', sans-serif;
+
+  }
+
+  
+
+
+
+.obituary-card{
+  display: flex;
+  /* justify-content: left; */
+  flex-flow: column wrap;
+  align-items: center;
+  /* margin-top: 2vh;
+  margin-bottom: 2vh;
+  margin-left: 2vw;
+  margin-right:2vw; */
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 4%;
+  /* margin-bottom: 2%; */
+  border-radius: 2%;
+  /* width: 375px; */
+  width: 21%;
+  /* min-width: 10%; */
+  height:max-content; 
+  padding: 25px;
+  border: none;
+  background:linear-gradient(to right, rgb(119, 30, 208), rgb(1, 204, 207));
+
+}
+
+.obituary-card p{
+  align-self:flex-start;
+  text-align: left !important;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.obituary-card h2{
+  text-align: center !important;
+  margin-top: 3%;
+  margin-bottom: 2%;
+}
+#dates{
+  align-self: center !important;
+  text-align: center !important;
+  font-size: 18px;
+}
+
+audio{
+  background-color: linear-gradient(to right, rgb(0, 255, 132), rgb(78, 109, 211));
+  /* color: inherit; */
+  width:230px;
+  margin-top: 5%;
+}
+
+/* #date{
+  width: 100%;
+  align-self: center !important;
+  margin-bottom: 4px;
+  margin-top: 2px;
+} */
+
+
+.obituary-card img{
+  /* width: 375px; */
+  align-self: center !important;
+  width: calc(100% + 50px);
+}
+
+.obituary-card-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+
+#submit-button-box.wait input{
+  background-color: gray;
+  cursor: not-allowed;
+
+}
+
+#play-button{
+  border-style: none;
+  background-color: inherit;
+  font-size: x-large;
+}
+
+#display-name{
+  display: flex;
+  justify-content: center;
+  font-size: large;
+}
+
+/* .collapsed{
+  width: 100%;
+} */
+
+@media only screen and (max-width:1375px) {
+  .obituary-card{
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+
+  }
+  #note-container{
+    justify-content: space-between;
+  }
+  
+}
+
+@media only screen and (max-width:740px) {
+  .obituary-card{
+    width: 80%;
+    /* margin-left: 5%; */
+  }
+  #note-container{
+    justify-content: center;
+    /* margin-left: 5% */
+  }
+  #dates{
+    width: 100%;
+  }
+  nav #title{
+    text-align: center;
+  }
+  /* body{
+    min-width: 560px;
+  } */
+  
+}
